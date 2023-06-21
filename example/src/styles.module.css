@@ -7,19 +7,23 @@
 	width: 100vw;
 	height: 100vh;
 	margin: 0;
+	/* line-height: 1rem; */
 }
 
 .text1 {
 	font-size: 4rem;
 	color: orange;
+	margin: 0;
 }
 
 .text2 {
 	font-size: 3rem;
 	color: chocolate;
+	margin: 0;
 }
 
 .text3 {
 	font-size: 3rem;
 	color: lightcoral;
+	margin: 0;
 }
