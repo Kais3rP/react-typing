@@ -41,6 +41,7 @@ const typingText = [
 		],
 		repeat: -1,
 		repeatDelay: 1000,
+		indexTrigger: 2 // This is the index of the nested sequence that triggers the typing of the next element in the main sequence
 	},
 	500,
 	{

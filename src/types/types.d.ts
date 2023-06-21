@@ -16,5 +16,7 @@ export interface ITypeAnimationProps {
 	repeat?: number;
 	repeatDelay?: number;
 	children?: JSX.Element | string;
+	/* Only used for nested sequences */
 	onAnimationEnd?: () => void;
+	indexTrigger: number;
 }

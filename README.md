@@ -59,6 +59,8 @@ interface ITypeAnimation {
 	text: (IText | ITypeAnimation | number)[] | [];
 	repeat?: number;
 	repeatDelay?: number;
+	indexTrigger?: number  // This prop makes sense only if used in a nested animation, since it allows to choose at what index of the nested typing sequence 
+					       // to trigger the start of the next element of the main sequence
 }
 
 interface IText {

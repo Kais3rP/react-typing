@@ -3,7 +3,13 @@ import React, { useCallback, useEffect, useMemo, useState, FC } from 'react';
 import { IText, ITypeAnimationProps } from 'types/types';
 
 const TypeAnimation: FC<ITypeAnimationProps> = React.memo(
-	({ text = [], repeat = 0, repeatDelay = 1000, onAnimationEnd }) => {
+	({
+		text = [],
+		repeat = 0,
+		repeatDelay = 1000,
+		onAnimationEnd,
+		indexTrigger,
+	}) => {
 		const [textCounter, settextCounter] = useState(0);
 		const [repeatCounter, setrepeatCounter] = useState(0);
 
@@ -11,18 +17,31 @@ const TypeAnimation: FC<ITypeAnimationProps> = React.memo(
 		const [isEnded, setIsEnded] = useState(false);
 		/* This controls the end of the typing of the first ellement of texts, it's used internally in case there is an infinite typing element 
 		nested that has to trigger the prosecution of typing when its first element is done to be typed */
-		const [isEndedFirstTyping, setisEndedFirstTyping] = useState(false);
+		const [
+			isNestedTriggerElementReached,
+			setisNestedTriggerElementReached,
+		] = useState(false);
 
 		/* This is the function that is called when each element of the text array has done being typed and triggers the switch to the next one */
 
 		const handleEndOfTyping = useCallback(() => {
 			/* This ensures that if we have a nest TypeAnimation in the sequence with infinite loop, the next element in the original sequence fires when the first element of the nested animation has completed */
-
-			if (typeof onAnimationEnd === 'function' && !isEndedFirstTyping) {
+			console.log('Text counter', textCounter);
+			if (
+				typeof onAnimationEnd === 'function' &&
+				!isNestedTriggerElementReached &&
+				indexTrigger === textCounter
+			) {
 				onAnimationEnd();
-				setisEndedFirstTyping(true);
+				setisNestedTriggerElementReached(true);
 			} else settextCounter((c) => c + 1);
-		}, [isEndedFirstTyping, onAnimationEnd]);
+			// eslint-disable-next-line react-hooks/exhaustive-deps
+		}, [
+			indexTrigger,
+			isNestedTriggerElementReached,
+			onAnimationEnd,
+			textCounter,
+		]);
 
 		/* Effects */
 
@@ -103,6 +122,5 @@ const TypeAnimation: FC<ITypeAnimationProps> = React.memo(
 );
 
 TypeAnimation.displayName = 'TypeAnimation';
-TypeAnimation.defaultProps = {};
 
 export default TypeAnimation;

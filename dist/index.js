@@ -79,7 +79,10 @@ const TextTyping = (_a) => {
                     }
                     // otherwise set the end of the whole animation which will trigger the repeat if it's set up
                     else
-                        setTimeout(() => setIsEnded(true), repeatDelay);
+                        setTimeout(() => {
+                            handleEndOfTyping();
+                            setIsEnded(true);
+                        }, repeatDelay);
                     return clearTimeout(timeout);
                 }
                 else
@@ -100,7 +103,10 @@ const TextTyping = (_a) => {
                     }
                     // otherwise set the end of the whole animation which will trigger the repeat if it's set up
                     else
-                        setTimeout(() => setIsEnded(true), repeatDelay);
+                        setTimeout(() => {
+                            handleEndOfTyping();
+                            setIsEnded(true);
+                        }, repeatDelay);
                     return clearTimeout(timeout);
                 }
                 // else increase the counter
@@ -110,8 +116,9 @@ const TextTyping = (_a) => {
             setText(content.slice(0, counter + 1));
         }, delay);
         return () => clearTimeout(timeout);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [
-        handleEndOfTyping,
+        // handleEndOfTyping, // This can create issues
         counter,
         delay,
         content,
@@ -128,24 +135,33 @@ const TextTyping = (_a) => {
         showCursor && (React.createElement(BlinkingCursor, { cursor: cursor, delay: cursorDelay, color: cursorColor })))) : null;
 };
 
-const TypeAnimation = React.memo(({ text = [], repeat = 0, repeatDelay = 1000, onAnimationEnd }) => {
+const TypeAnimation = React.memo(({ text = [], repeat = 0, repeatDelay = 1000, onAnimationEnd, indexTrigger, }) => {
     const [textCounter, settextCounter] = React.useState(0);
     const [repeatCounter, setrepeatCounter] = React.useState(0);
     /* This controls the end of the whole typing cycle, when all the texts in the array have been typed, if repeat is not set up no more typing is occurring */
     const [isEnded, setIsEnded] = React.useState(false);
     /* This controls the end of the typing of the first ellement of texts, it's used internally in case there is an infinite typing element
     nested that has to trigger the prosecution of typing when its first element is done to be typed */
-    const [isEndedFirstTyping, setisEndedFirstTyping] = React.useState(false);
+    const [isNestedTriggerElementReached, setisNestedTriggerElementReached,] = React.useState(false);
     /* This is the function that is called when each element of the text array has done being typed and triggers the switch to the next one */
     const handleEndOfTyping = React.useCallback(() => {
         /* This ensures that if we have a nest TypeAnimation in the sequence with infinite loop, the next element in the original sequence fires when the first element of the nested animation has completed */
-        if (typeof onAnimationEnd === 'function' && !isEndedFirstTyping) {
+        console.log('Text counter', textCounter);
+        if (typeof onAnimationEnd === 'function' &&
+            !isNestedTriggerElementReached &&
+            indexTrigger === textCounter) {
             onAnimationEnd();
-            setisEndedFirstTyping(true);
+            setisNestedTriggerElementReached(true);
         }
         else
             settextCounter((c) => c + 1);
-    }, [isEndedFirstTyping, onAnimationEnd]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [
+        indexTrigger,
+        isNestedTriggerElementReached,
+        onAnimationEnd,
+        textCounter,
+    ]);
     /* Effects */
     /* This handles the Repeat feature */
     React.useEffect(() => {
@@ -181,7 +197,6 @@ const TypeAnimation = React.memo(({ text = [], repeat = 0, repeatDelay = 1000, o
                 : 0, repeatDelay: repeatDelay }))))));
 });
 TypeAnimation.displayName = 'TypeAnimation';
-TypeAnimation.defaultProps = {};
 
 module.exports = TypeAnimation;
 //# sourceMappingURL=index.js.map
