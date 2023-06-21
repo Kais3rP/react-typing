@@ -1,11 +1,11 @@
-# react-typings
+# react-typing
 
-[![NPM](https://img.shields.io/npm/v/react-typings.svg)](https://www.npmjs.com/package/react-typings)
-[![npm](https://img.shields.io/npm/dm/react-typings.svg)](https://www.npmjs.com/package/react-typings)
+[![NPM](https://img.shields.io/npm/v/react-typing.svg)](https://www.npmjs.com/package/react-typing)
+[![npm](https://img.shields.io/npm/dm/react-typing.svg)](https://www.npmjs.com/package/react-typing)
 
 ## Try it out
 
-Try it [here](https://kais3rp.github.io/react-typings/)
+Try it [here](https://kais3rp.github.io/react-typing/)
 
 ## Introduction
 
@@ -23,13 +23,13 @@ You just render one `<TypeAnimation text={textSequence} />` and textSequence is 
 ## Install
 
 ```bash
-npm install --save react-typings
+npm install --save react-typing
 ```
 
 Or with yarn:
 
 ```bash
-yarn add react-typings
+yarn add react-typing
 ```
 
 ## Usage
@@ -130,4 +130,4 @@ If you wish to nest in the sequential typing animation another typing animation 
 
 ## License
 
-MIT © [react-typings](https://github.com/Kais3rP/react-typings)
+MIT © [react-typing](https://github.com/Kais3rP/react-typing)
