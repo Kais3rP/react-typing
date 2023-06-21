@@ -128,9 +128,15 @@ const typingText = [
 
 ```
 
-As you can see you can customize any chunk of the sequence singularly, they are gonna be executed sequentially, you can decide if some chunk has to perform a *yoyo* animation, you can style them by using standard JSX attributes `className` and inline `style` . You can pass whatever event listener or any other attribute, it'll end up on the element.
+As you can see you can customize any chunk of the sequence singularly, they are gonna be executed sequentially, you can decide if some chunk has to perform a *yoyo* animation, you can style them by using standard JSX attributes `className` and inline `style` . You can pass whatever event listener or any other HTML attribute, it'll end up on the container element.
 
-If you wish to nest in the sequential typing animation another typing animation with its own lifecycle, you can easily pass an object of type `ITypeAnimation` instead of `IText`, it's gonna work out of the box with no overhead since in that case it calls itself recursively.
+If you wish to nest another typing animation in the main typing animation, with its own isolated lifecycle, you can easily pass an object of type `ITypeAnimation` instead of `IText`, it's gonna work out of the box with no overhead since internally it's gonna call itself recursively.
+
+If you pass a number, that's gonna be executed as a delay in *ms* between the animations.
+
+## Notes
+
+Most of these typing libraries use a prop called *speed* to determine the typing speed, but it usually accepts a number that determines the delay in *ms* between the typing of each character, so I decided to call it `delay` instead, so to be clear that, the higher the number, the slower the typing speed.So you have full control on any kind of delay, *character typing delay*, *text chunk delay*, and *repeat sequence delay*.
 
 ## License
 
