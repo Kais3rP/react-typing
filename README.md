@@ -5,7 +5,7 @@
 
 ## Try it out
 
-Try it [here](https://kais3rp.github.io/react-typing-sequence/)
+Try it [here](https://kais3rp.github.io/react-typing/)
 Check the [GitHub repo](https://github.com/Kais3rP/react-typing)
 
 ## Introduction
