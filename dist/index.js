@@ -140,8 +140,8 @@ const TypeAnimation = React.memo(({ text = [], repeat = 0, repeatDelay = 1000, o
     const [repeatCounter, setrepeatCounter] = React.useState(0);
     /* This controls the end of the whole typing cycle, when all the texts in the array have been typed, if repeat is not set up no more typing is occurring */
     const [isEnded, setIsEnded] = React.useState(false);
-    /* This controls the end of the typing of the first ellement of texts, it's used internally in case there is an infinite typing element
-    nested that has to trigger the prosecution of typing when its first element is done to be typed */
+    /* This controls the end of the typing of element of texts identified by the indexTrigger prop, it's used internally in case there is a nested sequence
+     that has to trigger the prosecution of typing when the chosen element is done to be typed */
     const [isNestedTriggerElementReached, setisNestedTriggerElementReached,] = React.useState(false);
     /* This is the function that is called when each element of the text array has done being typed and triggers the switch to the next one */
     const handleEndOfTyping = React.useCallback(() => {
