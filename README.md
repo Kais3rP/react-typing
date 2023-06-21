@@ -47,8 +47,8 @@ const MyComponent = () => <TypeAnimation text={textSequence} />;
 ## API / Props
 
 | Props       | Default value | Required | Type   |
-| ----------- | ------------- | -------- | ------ | --- |
-| text        | undefined     | true     |  (IText \| ITypeAnimation \| number)[] \| [] |
+| ----------- | ------------- | -------- | ------ |
+| text        | undefined     | true     |  (IText \| ITypeAnimation   \|number)[]  \| [] |
 | repeat      | 0             | false    | number |
 | repeatDelay | 1000          | false    | number |
 
