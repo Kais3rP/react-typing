@@ -1,5 +1,5 @@
 {
-	"name": "react-typing",
+	"name": "react-typing-sequence",
 	"version": "1.0.0",
 	"keywords": ["react","typing","type animation"],
 	"description": "A lightweight, composable, React component to render text typing animations.",

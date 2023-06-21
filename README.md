@@ -1,11 +1,11 @@
-# react-typing
+# react-typing-sequence
 
-[![NPM](https://img.shields.io/npm/v/react-typing.svg)](https://www.npmjs.com/package/react-typing)
-[![npm](https://img.shields.io/npm/dm/react-typing.svg)](https://www.npmjs.com/package/react-typing)
+[![NPM](https://img.shields.io/npm/v/react-typing-sequence.svg)](https://www.npmjs.com/package/react-typing-sequence)
+[![npm](https://img.shields.io/npm/dm/react-typing-sequence.svg)](https://www.npmjs.com/package/react-typing-sequence)
 
 ## Try it out
 
-Try it [here](https://kais3rp.github.io/react-typing/)
+Try it [here](https://kais3rp.github.io/react-typing-sequence/)
 
 ## Introduction
 
@@ -14,7 +14,8 @@ A React Typing library.
 ## Reasons:
 
 There are already other well known Typing libraries that do their job, are well mantained and have been used for years now, so why the need for another library ?
-I found the existing libraries not offering the flexibility and customizability I needed so I decided to write one from scratch.
+I found that to compose sequentially multiple animations with different styles/behaviours, you had to instantiate multiple Typing components and setup an internal React state to handle the trigger of the new text to type when the previous one was ended using something like `onComplete` or `onEnd` events. 
+I just thought it was better to have a single component overpowered with the ability to handle sequential text, individually styled and with an individual behaviour.
 
 Purely React based, two hundreds lines of code, fast, light, composable, easy API.
 The main idea is to be able to compose complex typing sequences, with "yoyo" effects, custom delays, custom CSS styling for each segment, custom cursors, etc... etc... Without having to instantiate multiple Components.
@@ -23,13 +24,13 @@ You just render one `<TypeAnimation text={textSequence} />` and textSequence is 
 ## Install
 
 ```bash
-npm install --save react-typing
+npm install --save react-typing-sequence
 ```
 
 Or with yarn:
 
 ```bash
-yarn add react-typing
+yarn add react-typing-sequence
 ```
 
 ## Usage
@@ -81,7 +82,7 @@ const typingText = [
 	},
 	500,
 	{
-		content: 'react-typing',
+		content: 'react-typing-sequence',
 		className: styles.text2,
 	},
 	{
@@ -130,4 +131,4 @@ If you wish to nest in the sequential typing animation another typing animation 
 
 ## License
 
-MIT © [react-typing](https://github.com/Kais3rP/react-typing)
+MIT © [react-typing-sequence](https://github.com/Kais3rP/react-typing-sequence)

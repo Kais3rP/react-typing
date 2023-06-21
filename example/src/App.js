@@ -1,4 +1,4 @@
-import TypeAnimation from 'react-typing';
+import TypeAnimation from 'react-typing-sequence';
 import styles from './styles.module.css';
 
 const typingText = [
@@ -8,7 +8,7 @@ const typingText = [
 	},
 	500,
 	{
-		content: 'react-typing',
+		content: 'react-typing-sequence',
 		className: styles.text2,
 	},
 	{

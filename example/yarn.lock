@@ -7293,7 +7293,7 @@ react-scripts@5.0.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
-"react-typing@link:..":
+"react-typing-sequence@link:..":
   version "0.0.0"
   uid ""
 
