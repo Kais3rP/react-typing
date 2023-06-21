@@ -30,5 +30,6 @@ module.exports = {
 		'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
 		'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
 		'react/react-in-jsx-scope': 'off', // suppress errors for missing 'import React' in files
+		'react/prop-types': 'off',
 	},
 };

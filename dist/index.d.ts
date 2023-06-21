@@ -1,12 +1,5 @@
 import { FC } from 'react';
-export interface IProps {
-    children?: JSX.Element | string;
-    options: {
-        language: string;
-    };
-    styleOptions: IStyleTheme;
-    textContainer: HTMLElement;
-}
-declare const Component: FC<IProps>;
-export default Component;
+import { ITypeAnimationProps } from 'types/types';
+declare const TypeAnimation: FC<ITypeAnimationProps>;
+export default TypeAnimation;
 //# sourceMappingURL=index.d.ts.map

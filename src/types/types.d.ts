@@ -1,31 +1,20 @@
-/* eslint-disable no-unused-vars */
-import { SpeechSynth } from '../lib';
+declare global {}
 
-declare global {
-	type Interval = ReturnType<typeof setInterval>;
-	type Timeout = ReturnType<typeof setTimeout>;
+export interface IText {
+	content: string;
+	tag?: keyof JSX.IntrinsicElements;
+	delay?: number; // speed of typing
+	yoyo?: boolean;
+	cursor?: string;
+	cursorDelay?: number;
+	cursorColor?: string;
+	[key]: string;
+}
 
-	/* Extend Array prototype */
-
-	interface Array<T> {
-		__join__(fn: (el: any, i: number, arr: T[]) => string): string;
-	}
-
-	interface IStyleTheme {
-		primaryColor: string;
-		secondaryColor: string;
-		bgColor: string;
-		textColor: string;
-		highlightColor1: string;
-		highlightColor2: string;
-	}
-
-	interface IVoiceInfo {
-		name: string;
-		value: string;
-	}
-
-	/* Store */
-
-	type ActionType = { type: string; payload: any };
+export interface ITypeAnimationProps {
+	text: (IText | ITypeAnimationProps | number)[] | [];
+	repeat?: number;
+	repeatDelay?: number;
+	children?: JSX.Element | string;
+	onAnimationEnd?: () => void;
 }

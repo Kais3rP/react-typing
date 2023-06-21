@@ -3,5 +3,23 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
+	background-color: black;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+}
+
+.text1 {
+	font-size: 4rem;
+	color: orange;
+}
+
+.text2 {
+	font-size: 3rem;
+	color: chocolate;
+}
+
+.text3 {
+	font-size: 3rem;
+	color: lightcoral;
 }

@@ -9,6 +9,7 @@
 		"@testing-library/user-event": "^13.2.1",
 		"react": "link:../node_modules/react",
 		"react-dom": "link:../node_modules/react-dom",
+		"react-typing": "link:..",
 		"react-scripts": "5.0.1",
 		"react-bubbles": "link:..",
 		"web-vitals": "^2.1.0"
@@ -37,6 +38,5 @@
 			"last 1 safari version"
 		]
 	},
-	"devDependencies": {
-	}
+	"devDependencies": {}
 }

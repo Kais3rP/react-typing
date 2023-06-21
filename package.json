@@ -1,17 +1,17 @@
 {
-	"name": "EMPTY",
+	"name": "react-typing",
 	"version": "0.1.0",
-	"keywords": [],
-	"description": "",
+	"keywords": ["react","typing","type animation"],
+	"description": "A lightweight, composable, React component to render text typing animations.",
 	"main": "dist/index.min.js",
 	"module": "dist/index.es.js",
 	"types": "dist/index.d.ts",
 	"files": [
 		"dist"
 	],
-	"author": "EMPTY",
+	"author": "Cesare Polonara",
 	"repository": {
-		"url": "EMPTY",
+		"url": "",
 		"type": "git"
 	},
 	"license": "MIT",
@@ -88,7 +88,5 @@
 			"./node_modules/.bin/eslint"
 		]
 	},
-	"dependencies": {
-		"@react-icons/all-files": "^4.1.0"
-	}
+	"dependencies": {}
 }

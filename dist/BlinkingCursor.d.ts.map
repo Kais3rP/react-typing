@@ -1,0 +1,1 @@
+{"version":3,"file":"BlinkingCursor.d.ts","sourceRoot":"","sources":["../src/BlinkingCursor.tsx"],"names":[],"mappings":"AAAA,OAAc,EAAuB,EAAE,EAAE,MAAM,OAAO,CAAC;AAEvD,UAAU,MAAM;IACf,MAAM,EAAE,MAAM,CAAC;IACf,KAAK,EAAE,MAAM,CAAC;IACd,KAAK,EAAE,MAAM,CAAC;CACd;AAED,QAAA,MAAM,cAAc,EAAE,EAAE,CAAC,MAAM,CAoB7B,CAAC;AAIH,eAAe,cAAc,CAAC"}
