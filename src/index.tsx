@@ -8,7 +8,7 @@ const TypeAnimation: FC<ITypeAnimationProps> = React.memo(
 		repeat = 0,
 		repeatDelay = 1000,
 		onAnimationEnd,
-		indexTrigger,
+		indexTrigger = 0,
 	}) => {
 		const [textCounter, settextCounter] = useState(0);
 		const [repeatCounter, setrepeatCounter] = useState(0);
@@ -25,7 +25,7 @@ const TypeAnimation: FC<ITypeAnimationProps> = React.memo(
 		/* This is the function that is called when each element of the text array has done being typed and triggers the switch to the next one */
 
 		const handleEndOfTyping = useCallback(() => {
-			/* This ensures that if we have a nest TypeAnimation in the sequence with infinite loop, the next element in the original sequence fires when the first element of the nested animation has completed */
+			/* This ensures that if we have a nested TypeAnimation in the sequence with infinite loop, the next element in the original sequence fires when the chosen element ( with indexTrigger, defaults to 0 ) of the nested animation has completed */
 			console.log('Text counter', textCounter);
 			if (
 				typeof onAnimationEnd === 'function' &&

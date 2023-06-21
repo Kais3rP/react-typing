@@ -135,7 +135,7 @@ const TextTyping = (_a) => {
         showCursor && (React.createElement(BlinkingCursor, { cursor: cursor, delay: cursorDelay, color: cursorColor })))) : null;
 };
 
-const TypeAnimation = React.memo(({ text = [], repeat = 0, repeatDelay = 1000, onAnimationEnd, indexTrigger, }) => {
+const TypeAnimation = React.memo(({ text = [], repeat = 0, repeatDelay = 1000, onAnimationEnd, indexTrigger = 0, }) => {
     const [textCounter, settextCounter] = React.useState(0);
     const [repeatCounter, setrepeatCounter] = React.useState(0);
     /* This controls the end of the whole typing cycle, when all the texts in the array have been typed, if repeat is not set up no more typing is occurring */
@@ -145,7 +145,7 @@ const TypeAnimation = React.memo(({ text = [], repeat = 0, repeatDelay = 1000, o
     const [isNestedTriggerElementReached, setisNestedTriggerElementReached,] = React.useState(false);
     /* This is the function that is called when each element of the text array has done being typed and triggers the switch to the next one */
     const handleEndOfTyping = React.useCallback(() => {
-        /* This ensures that if we have a nest TypeAnimation in the sequence with infinite loop, the next element in the original sequence fires when the first element of the nested animation has completed */
+        /* This ensures that if we have a nested TypeAnimation in the sequence with infinite loop, the next element in the original sequence fires when the chosen element ( with indexTrigger, defaults to 0 ) of the nested animation has completed */
         console.log('Text counter', textCounter);
         if (typeof onAnimationEnd === 'function' &&
             !isNestedTriggerElementReached &&
