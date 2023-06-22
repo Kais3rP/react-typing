@@ -65,7 +65,7 @@ const TypeAnimation: FC<ITypeAnimationProps> = React.memo(
 				setrepeatCounter((c) => c + 1); // increase the repeat counter
 				setIsEnded(false); // reset the animation state flag
 			}
-		}, [isEnded, repeat, repeatCounter, text]);
+		}, [isEnded, repeat, repeatCounter]);
 
 		/* Handle the reset of the array of text to show when the repeat flag is on, it has to perform an additional rerender to reset the first element of the array to the original empty state, 
 		otherwise it never unmounts if we set the textCounter back to 0 straight */
