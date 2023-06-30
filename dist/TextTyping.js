@@ -46,7 +46,10 @@ const TextTyping = (_a) => {
                     }
                     // otherwise set the end of the whole animation which will trigger the repeat if it's set up
                     else
-                        setTimeout(() => setIsEnded(true), repeatDelay);
+                        setTimeout(() => {
+                            handleEndOfTyping();
+                            setIsEnded(true);
+                        }, repeatDelay);
                     return clearTimeout(timeout);
                 }
                 else
@@ -67,7 +70,10 @@ const TextTyping = (_a) => {
                     }
                     // otherwise set the end of the whole animation which will trigger the repeat if it's set up
                     else
-                        setTimeout(() => setIsEnded(true), repeatDelay);
+                        setTimeout(() => {
+                            handleEndOfTyping();
+                            setIsEnded(true);
+                        }, repeatDelay);
                     return clearTimeout(timeout);
                 }
                 // else increase the counter
@@ -77,8 +83,9 @@ const TextTyping = (_a) => {
             setText(content.slice(0, counter + 1));
         }, delay);
         return () => clearTimeout(timeout);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [
-        handleEndOfTyping,
+        // handleEndOfTyping, // This can create issues
         counter,
         delay,
         content,
