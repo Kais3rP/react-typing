@@ -60,7 +60,6 @@ const TextTyping = (_a) => {
     const [_text, setText] = React.useState('');
     const [showCursor, setshowCursor] = React.useState(true);
     const [direction, setDirection] = React.useState('asc');
-    // console.log('Type component, text:', _text);
     React.useEffect(() => {
         /* Switch to the next element if it's not a valid object */
         if (typeof content !== 'string')
@@ -146,7 +145,6 @@ const TypeAnimation = React.memo(({ text = [], repeat = 0, repeatDelay = 1000, o
     /* This is the function that is called when each element of the text array has done being typed and triggers the switch to the next one */
     const handleEndOfTyping = React.useCallback(() => {
         /* This ensures that if we have a nested TypeAnimation in the sequence with infinite loop, the next element in the original sequence fires when the chosen element ( with indexTrigger, defaults to 0 ) of the nested animation has completed */
-        console.log('Text counter', textCounter);
         if (typeof onAnimationEnd === 'function' &&
             !isNestedTriggerElementReached &&
             indexTrigger === textCounter) {

@@ -27,7 +27,6 @@ const TextTyping = (_a) => {
     const [_text, setText] = useState('');
     const [showCursor, setshowCursor] = useState(true);
     const [direction, setDirection] = useState('asc');
-    // console.log('Type component, text:', _text);
     useEffect(() => {
         /* Switch to the next element if it's not a valid object */
         if (typeof content !== 'string')
