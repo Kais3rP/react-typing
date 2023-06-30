@@ -26,7 +26,6 @@ const TypeAnimation: FC<ITypeAnimationProps> = React.memo(
 
 		const handleEndOfTyping = useCallback(() => {
 			/* This ensures that if we have a nested TypeAnimation in the sequence with infinite loop, the next element in the original sequence fires when the chosen element ( with indexTrigger, defaults to 0 ) of the nested animation has completed */
-			console.log('Text counter', textCounter);
 			if (
 				typeof onAnimationEnd === 'function' &&
 				!isNestedTriggerElementReached &&
